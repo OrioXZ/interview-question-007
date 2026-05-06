@@ -28,7 +28,7 @@ func main() {
 
 	r.Use(cors.New(cors.Config{
 		AllowOrigins:     []string{"http://localhost:4200"},
-		AllowMethods:     []string{"GET", "POST", "PATCH", "OPTIONS"},
+		AllowMethods:     []string{"GET", "POST", "PATCH", "DELETE", "OPTIONS"},
 		AllowHeaders:     []string{"Origin", "Content-Type"},
 		AllowCredentials: true,
 		MaxAge:           12 * time.Hour,
@@ -38,6 +38,7 @@ func main() {
 	handlers.RegisterCommentRoutes(r, gdb)
 	handlers.RegisterPersonalInfoRoutes(r, gdb)
 	handlers.RegisterProfileRoutes(r, gdb)
+	handlers.RegisterQuestionRoutes(r, gdb)
 
 	log.Println("listening on :8080")
 	_ = r.Run(":8080")

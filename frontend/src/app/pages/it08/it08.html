@@ -1,0 +1,44 @@
+<div class="page">
+  <div class="topbar">
+    <h1>Question List</h1>
+    <button class="btn primary" type="button" (click)="openAdd()" *ngIf="!adding()">Add Question</button>
+  </div>
+
+  <section class="form" *ngIf="adding()">
+    <h2>IT08-2</h2>
+    <label>
+      Question data
+      <textarea
+        [ngModel]="text()"
+        (ngModelChange)="text.set($event)"
+        rows="4"
+      ></textarea>
+    </label>
+
+    <div class="actions">
+      <button class="btn" type="button" (click)="cancel()">Cancel</button>
+      <button class="btn primary" type="button" (click)="save()">Save</button>
+    </div>
+  </section>
+
+  <table class="table" *ngIf="!adding()">
+    <thead>
+      <tr>
+        <th style="width: 80px;">No.</th>
+        <th>Question</th>
+        <th style="width: 96px;">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let question of questions()">
+        <td>{{ question.question_no }}</td>
+        <td>{{ question.text }}</td>
+        <td>
+          <button class="btn danger" type="button" (click)="deleteQuestion(question)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="empty" *ngIf="!adding() && questions().length === 0">No questions yet</div>
+</div>
