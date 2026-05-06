@@ -1,0 +1,42 @@
+<div class="page" *ngIf="!result(); else resultView">
+  <h1>Exam</h1>
+
+  <label class="tester">
+    Tester name
+    <input
+      [ngModel]="testerName()"
+      (ngModelChange)="testerName.set($event)"
+      type="text"
+    />
+  </label>
+
+  <section class="question" *ngFor="let question of questions()">
+    <h2>{{ question.question_no }}. {{ question.text }}</h2>
+
+    <label class="option" *ngFor="let option of question.options">
+      <input
+        type="radio"
+        [name]="'question-' + question.id"
+        [checked]="answers()[question.id] === option.id"
+        (change)="selectAnswer(question.id, option.id)"
+      />
+      <span>{{ option.label }}. {{ option.text }}</span>
+    </label>
+  </section>
+
+  <div class="empty" *ngIf="questions().length === 0">No exam questions found</div>
+
+  <div class="actions">
+    <button class="btn primary" type="button" (click)="submit()" [disabled]="questions().length === 0">
+      Submit
+    </button>
+  </div>
+</div>
+
+<ng-template #resultView>
+  <div class="page result">
+    <h1>Result</h1>
+    <div class="score">{{ result()?.tester_name }} scored {{ result()?.score }} / {{ result()?.total_score }}</div>
+    <button class="btn primary" type="button" (click)="takeAgain()">Take again</button>
+  </div>
+</ng-template>

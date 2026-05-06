@@ -39,6 +39,7 @@ func main() {
 	handlers.RegisterPersonalInfoRoutes(r, gdb)
 	handlers.RegisterProfileRoutes(r, gdb)
 	handlers.RegisterQuestionRoutes(r, gdb)
+	handlers.RegisterExamRoutes(r, gdb)
 
 	log.Println("listening on :8080")
 	_ = r.Run(":8080")
