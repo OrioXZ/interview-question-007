@@ -23,6 +23,7 @@ func MigrateAndSeed(gdb *gorm.DB, migrationsDir string) error {
 	files := []string{
 		filepath.Join(migrationsDir, "001_init.sql"),
 		filepath.Join(migrationsDir, "002_seed.sql"),
+		filepath.Join(migrationsDir, "003_comments.sql"),
 	}
 	for _, f := range files {
 		if err := execSQLFile(gdb, f); err != nil {

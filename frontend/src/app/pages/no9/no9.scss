@@ -1,0 +1,42 @@
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px;
+  font-family: system-ui, sans-serif;
+}
+
+.comment-box {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.commenter,
+.name {
+  font-weight: 700;
+}
+
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  resize: vertical;
+  font: inherit;
+}
+
+.comments {
+  display: grid;
+  gap: 10px;
+}
+
+.comment {
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 10px;
+}
+
+.message {
+  margin-top: 4px;
+  white-space: pre-wrap;
+}

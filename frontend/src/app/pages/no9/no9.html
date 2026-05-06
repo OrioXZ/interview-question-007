@@ -1,0 +1,19 @@
+<div class="page">
+  <section class="comment-box">
+    <div class="commenter">{{ commenter }}</div>
+    <textarea
+      [ngModel]="message()"
+      (ngModelChange)="message.set($event)"
+      (keydown.enter)="saveOnEnter($event)"
+      rows="3"
+      placeholder="Write a comment"
+    ></textarea>
+  </section>
+
+  <section class="comments">
+    <article class="comment" *ngFor="let comment of comments()">
+      <div class="name">{{ comment.commenter }}</div>
+      <div class="message">{{ comment.message }}</div>
+    </article>
+  </section>
+</div>
