@@ -1,0 +1,20 @@
+<div class="page" *ngIf="page() === 'home'">
+  <h1>IT05-1</h1>
+  <div class="latest">คิวล่าสุด: {{ queueNumber() || '00' }}</div>
+  <div class="actions">
+    <button class="btn primary" type="button" (click)="getQueue()" [disabled]="loading()">รับบัตรคิว</button>
+    <button class="btn" type="button" (click)="clearQueue()" [disabled]="loading()">ล้างคิว</button>
+  </div>
+</div>
+
+<div class="page ticket" *ngIf="page() === 'ticket'">
+  <h1>IT05-2</h1>
+  <div class="queue-number">{{ queueNumber() }}</div>
+  <button class="btn primary" type="button" (click)="backHome()">กลับหน้ารับบัตรคิว</button>
+</div>
+
+<div class="page ticket" *ngIf="page() === 'cleared'">
+  <h1>IT05-3</h1>
+  <div class="queue-number">00</div>
+  <button class="btn primary" type="button" (click)="backHome()">กลับหน้ารับบัตรคิว</button>
+</div>
