@@ -1,0 +1,80 @@
+<div class="page">
+  <h1>Profile Form</h1>
+
+  <form class="form" (ngSubmit)="save()">
+    <label>
+      Full name
+      <input
+        [ngModel]="form().full_name"
+        (ngModelChange)="updateForm('full_name', $event)"
+        name="full_name"
+        type="text"
+        required
+      />
+    </label>
+
+    <label>
+      Email
+      <input
+        [ngModel]="form().email"
+        (ngModelChange)="updateForm('email', $event)"
+        name="email"
+        type="email"
+        required
+      />
+    </label>
+
+    <label>
+      Phone
+      <input
+        [ngModel]="form().phone"
+        (ngModelChange)="updateForm('phone', $event)"
+        name="phone"
+        type="tel"
+        required
+      />
+    </label>
+
+    <label>
+      Birth Day
+      <input
+        [ngModel]="form().birth_day"
+        (ngModelChange)="updateForm('birth_day', $event)"
+        name="birth_day"
+        type="date"
+        required
+      />
+    </label>
+
+    <label>
+      Occupation
+      <select
+        [ngModel]="form().occupation"
+        (ngModelChange)="updateForm('occupation', $event)"
+        name="occupation"
+        required
+      >
+        <option value="">Select occupation</option>
+        <option *ngFor="let occupation of occupations" [value]="occupation">{{ occupation }}</option>
+      </select>
+    </label>
+
+    <label>
+      Profile
+      <input #profileInput type="file" accept="image/*" (change)="onProfileChange($event)" required />
+    </label>
+
+    <div class="preview" *ngIf="form().profile_image_base64">
+      <img [src]="form().profile_image_base64" alt="Profile preview" />
+    </div>
+
+    <div class="actions">
+      <button class="btn" type="button" (click)="clear()">Clear</button>
+      <button class="btn primary" type="submit">Save</button>
+    </div>
+  </form>
+
+  <div class="success" *ngIf="message()">
+    ID: {{ savedId() }} - {{ message() }}
+  </div>
+</div>
