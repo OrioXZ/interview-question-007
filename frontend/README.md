@@ -1,118 +1,64 @@
-# IT Approval Frontend
+# Assignment Frontend
 
-Frontend application for IT Approval System.
-
-This application allows users to view requests by status and perform approval or rejection actions.
-
----
-
-## Tech Stack
-
-- Angular
-- TypeScript
-- RxJS
-- REST API integration
-
----
-
-## Features
-
-- View requests by status (Pending / Approved / Rejected)
-- Approve request with reason
-- Reject request with reason
-- Status-based filtering
-- Backend integration via REST API
-
----
+Angular frontend for the assignment tasks.
 
 ## Prerequisites
 
-- Node.js (>= 18 recommended)
+- Node.js
 - npm
-- Angular CLI
+- Backend API running at `http://localhost:8080`
 
-Install Angular CLI if not installed:
+Start the backend before testing frontend features:
 
 ```bash
-npm install -g @angular/cli
+cd ../backend
+go run ./cmd/api
 ```
 
----
+## Install Dependencies
 
-## Setup & Run
-
-Install dependencies:
+From the `frontend` folder:
 
 ```bash
 npm install
 ```
 
-Run development server:
+## Run Angular Dev Server
 
 ```bash
-ng serve
+npm run start
 ```
 
-Open browser:
+The Angular dev server runs at:
 
-```
+```text
 http://localhost:4200
 ```
 
----
+## Open the App
 
-## Backend Requirement
+Open the landing page:
 
-Backend service must be running at:
-
-```
-http://localhost:8080
+```text
+http://localhost:4200
 ```
 
-Make sure:
+The landing page lists links to all 10 assignment tasks.
 
-- Backend server is running
-- CORS is enabled
-- Database is initialized
+## Task Routes
 
----
+- `http://localhost:4200/it01` - Personal Info
+- `http://localhost:4200/it02` - Login and Register
+- `http://localhost:4200/it03` - Approval Requests
+- `http://localhost:4200/it04` - Profile Form
+- `http://localhost:4200/it05` - Queue Ticket
+- `http://localhost:4200/it06` - Barcode Product Codes
+- `http://localhost:4200/it07` - QR Product Codes
+- `http://localhost:4200/it08` - Question List
+- `http://localhost:4200/it09` - Comments
+- `http://localhost:4200/it10` - Exam
 
-## API Integration
+## Notes
 
-### Get Requests
-
-```
-GET /requests?status=PENDING|APPROVED|REJECTED
-```
-
-Returns request list by status.
-
----
-
-### Update Request Status
-
-```
-PATCH /requests/{id}/status
-```
-
-Payload:
-
-```json
-{
-  "status_code": "APPROVED | REJECTED",
-  "decided_reason": "string",
-  "decided_by": "string"
-}
-```
-
----
-
-## Design Notes
-
-- Service layer handles API communication
-- Backend uses snake_case fields, mapped in frontend service
-- Status workflow: `PENDING → APPROVED / REJECTED`
-- Angular Signals used for state management
-
----
-
+- Keep the backend running at `http://localhost:8080` while testing features that save, load, delete, log in, or submit data.
+- The root path `/` shows the landing page.
