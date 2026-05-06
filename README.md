@@ -1,155 +1,110 @@
-# IT Approval System
+# Assignment Project
 
 ## Overview
 
-This project is a simple IT request approval system that allows users
-to:
+This repository implements 10 assignment tasks in one full-stack project.
 
--   View IT requests
--   Approve requests
--   Reject requests with a reason
--   Filter requests by status (Pending / Approved / Rejected)
+The app includes:
 
-The system consists of:
+- Angular frontend
+- Go Gin backend REST API
+- SQLite database persistence
 
--   **Frontend** --- Angular application
--   **Backend** --- Golang (Gin) REST API
--   **Database** --- SQLite
-
-This project is organized as a **monorepo** containing both frontend and
-backend for easier setup and review.
-
-------------------------------------------------------------------------
+The root frontend route shows a landing page with links to all tasks.
 
 ## Repository Structure
 
-    it-approval/
-    ├── backend/    # Golang Gin API + SQLite database
-    ├── frontend/   # Angular application
-    └── README.md
-
-------------------------------------------------------------------------
+```text
+it-approval/
+  backend/   Go Gin API, SQLite database, migrations
+  frontend/  Angular application
+  README.md
+```
 
 ## Tech Stack
 
 ### Frontend
 
--   Angular
--   TypeScript
--   RxJS
+- Angular
+- TypeScript
+- RxJS
 
 ### Backend
 
--   Golang
--   Gin Web Framework
--   GORM
--   SQLite
-
-------------------------------------------------------------------------
+- Go
+- Gin
+- GORM
+- SQLite
 
 ## Features
 
--   View IT requests
--   Approve request
--   Reject request with reason
--   Status-based filtering
--   Backend integration via REST API
--   Transaction handling for status updates
--   Validation for final status updates
-
-------------------------------------------------------------------------
+- IT01 - Personal Info page with add/view modal and database save
+- IT02 - Login/register flow with bcrypt password hashing and JWT validation
+- IT03 - IT approval request list with approve/reject status updates
+- IT04 - Profile form with validation, occupation combo box, and Base64 image save
+- IT05 - Queue ticket flow from A0 to Z9 with clear queue support
+- IT06 - Product code page with Code 39 barcode rendering
+- IT07 - Product code page with QR display modal
+- IT08 - Question list with add, cancel, delete, and renumbering
+- IT09 - Persistent comment page with fixed commenter name
+- IT10 - Exam-taking page with scoring and saved results
 
 ## Prerequisites
 
--   Node.js (\>= 18 recommended)
--   npm
--   Angular CLI
--   Go (\>= 1.21 recommended)
+- Go
+- Node.js
+- npm
 
-Install Angular CLI if not installed:
+## Run Backend
 
-``` bash
-npm install -g @angular/cli
-```
+Start the backend first:
 
-------------------------------------------------------------------------
-
-## How to Run
-
-### Start Backend
-
-``` bash
+```bash
 cd backend
 go run ./cmd/api
-
 ```
 
-Backend runs at:
+The backend runs at:
 
+```text
 http://localhost:8080
+```
 
-### Start Frontend
+Keep the backend running before testing frontend features that load, save, delete, log in, or submit data.
 
-``` bash
+## Run Frontend
+
+In a second terminal:
+
+```bash
 cd frontend
 npm install
-ng serve
+npm run start
 ```
 
-Frontend runs at:
+The Angular dev server runs at:
 
+```text
 http://localhost:4200
-
-------------------------------------------------------------------------
-
-## API Endpoints
-
-### Get Requests
-
-GET /requests\
-GET /requests?status=PENDING\
-GET /requests?status=APPROVED\
-GET /requests?status=REJECTED
-
-### Update Request Status
-
-PATCH /requests/{id}/status
-
-#### Approve Example
-
-``` json
-{
-  "status_code": "APPROVED",
-  "decided_reason": "admin",
-  "decided_by": "admin"
-}
 ```
 
-#### Reject Example
+## Open the App
 
-``` json
-{
-  "status_code": "REJECTED",
-  "decided_reason": "not enough budget",
-  "decided_by": "admin"
-}
+Landing page:
+
+```text
+http://localhost:4200
 ```
 
-------------------------------------------------------------------------
+Task routes:
 
-## Business Rules
-
--   Final status requires:
-    -   decidedReason
-    -   decidedBy
--   Status updates use database transactions.
--   Requests can be filtered by status.
-
-------------------------------------------------------------------------
-
-## Future Improvements
-
--   Authentication
--   Unit tests
--   Pagination
--   Docker support
+- `http://localhost:4200/it01`
+- `http://localhost:4200/it02`
+- `http://localhost:4200/it03`
+- `http://localhost:4200/it04`
+- `http://localhost:4200/it05`
+- `http://localhost:4200/it06`
+- `http://localhost:4200/it07`
+- `http://localhost:4200/it08`
+- `http://localhost:4200/it09`
+- `http://localhost:4200/it10`
