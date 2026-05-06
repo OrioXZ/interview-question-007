@@ -1,0 +1,88 @@
+<div class="page">
+  <section *ngIf="page() === 'login'" class="panel">
+    <h1>IT02-1</h1>
+
+    <form class="form" (ngSubmit)="login()">
+      <label>
+        Username
+        <input
+          [ngModel]="loginForm().username"
+          (ngModelChange)="updateLogin('username', $event)"
+          name="login_username"
+          type="text"
+          autocomplete="username"
+          required
+        />
+      </label>
+
+      <label>
+        Password
+        <input
+          [ngModel]="loginForm().password"
+          (ngModelChange)="updateLogin('password', $event)"
+          name="login_password"
+          type="password"
+          autocomplete="current-password"
+          required
+        />
+      </label>
+
+      <div class="actions">
+        <button class="btn" type="button" (click)="showRegister()" [disabled]="loading()">&#3626;&#3617;&#3633;&#3588;&#3619;&#3626;&#3617;&#3634;&#3594;&#3636;&#3585;</button>
+        <button class="btn primary" type="submit" [disabled]="loading()">Login</button>
+      </div>
+    </form>
+  </section>
+
+  <section *ngIf="page() === 'register'" class="panel">
+    <h1>IT02-2</h1>
+
+    <form class="form" (ngSubmit)="register()">
+      <label>
+        Username
+        <input
+          [ngModel]="registerForm().username"
+          (ngModelChange)="updateRegister('username', $event)"
+          name="register_username"
+          type="text"
+          autocomplete="username"
+          required
+        />
+      </label>
+
+      <label>
+        Password
+        <input
+          [ngModel]="registerForm().password"
+          (ngModelChange)="updateRegister('password', $event)"
+          name="register_password"
+          type="password"
+          autocomplete="new-password"
+          required
+        />
+      </label>
+
+      <label>
+        Confirm password
+        <input
+          [ngModel]="registerForm().confirm_password"
+          (ngModelChange)="updateRegister('confirm_password', $event)"
+          name="confirm_password"
+          type="password"
+          autocomplete="new-password"
+          required
+        />
+      </label>
+
+      <div class="actions">
+        <button class="btn" type="button" (click)="showLogin()" [disabled]="loading()">Cancel</button>
+        <button class="btn primary" type="submit" [disabled]="loading()">Register</button>
+      </div>
+    </form>
+  </section>
+
+  <section *ngIf="page() === 'success'" class="panel success">
+    <h1>IT02-3</h1>
+    <p>Logged in username: <strong>{{ loggedInUsername() }}</strong></p>
+  </section>
+</div>

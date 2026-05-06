@@ -31,6 +31,7 @@ func MigrateAndSeed(gdb *gorm.DB, migrationsDir string) error {
 		filepath.Join(migrationsDir, "008_barcode_products.sql"),
 		filepath.Join(migrationsDir, "009_qr_products.sql"),
 		filepath.Join(migrationsDir, "010_queue.sql"),
+		filepath.Join(migrationsDir, "011_auth_users.sql"),
 	}
 	for _, f := range files {
 		if err := execSQLFile(gdb, f); err != nil {

@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { It01Component } from './pages/it01/it01';
+import { It02Component } from './pages/it02/it02';
 import { It03Component } from './pages/it03/it03';
 import { It04Component } from './pages/it04/it04';
 import { It05Component } from './pages/it05/it05';
@@ -11,8 +12,9 @@ import { No7Component } from './pages/no7/no7';
 import { No9Component } from './pages/no9/no9';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'it05', pathMatch: 'full' },
+  { path: '', redirectTo: 'it02', pathMatch: 'full' },
   { path: 'it01', component: It01Component },
+  { path: 'it02', component: It02Component },
   { path: 'it03', component: It03Component },
   { path: 'it04', component: It04Component },
   { path: 'it05', component: It05Component },
