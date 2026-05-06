@@ -2,23 +2,23 @@ import { CommonModule } from '@angular/common';
 import { Component, computed, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { No7ProductCode } from '../../models/no7-product-code.model';
-import { No7ProductCodeService } from '../../services/no7-product-code.service';
+import { It07ProductCode } from '../../models/it07-product-code.model';
+import { It07ProductCodeService } from '../../services/it07-product-code.service';
 
 @Component({
-  selector: 'app-no7',
+  selector: 'app-it07',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './no7.html',
-  styleUrls: ['./no7.scss'],
+  templateUrl: './it07.html',
+  styleUrls: ['./it07.scss'],
 })
-export class No7Component {
-  products = signal<No7ProductCode[]>([]);
+export class It07Component {
+  products = signal<It07ProductCode[]>([]);
   codeInput = signal('');
-  selectedProduct = signal<No7ProductCode | null>(null);
+  selectedProduct = signal<It07ProductCode | null>(null);
   qrRows = computed(() => this.qrMatrix(this.selectedProduct()?.code ?? ''));
 
-  constructor(private productService: No7ProductCodeService) {
+  constructor(private productService: It07ProductCodeService) {
     this.loadProducts();
   }
 
@@ -50,7 +50,7 @@ export class No7Component {
     });
   }
 
-  openQR(product: No7ProductCode) {
+  openQR(product: It07ProductCode) {
     this.selectedProduct.set(product);
   }
 
@@ -58,7 +58,7 @@ export class No7Component {
     this.selectedProduct.set(null);
   }
 
-  deleteProductCode(product: No7ProductCode) {
+  deleteProductCode(product: It07ProductCode) {
     if (!confirm(`Delete ${this.formatCode(product.code)}?`)) return;
 
     this.productService.deleteProductCode(product.id).subscribe({

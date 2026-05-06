@@ -1,4 +1,4 @@
-export interface No9Comment {
+export interface It09Comment {
   id: number;
   commenter: string;
   message: string;

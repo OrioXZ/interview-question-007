@@ -2,22 +2,22 @@ import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { No9Comment } from '../../models/no9-comment.model';
-import { No9CommentService } from '../../services/no9-comment.service';
+import { It09Comment } from '../../models/it09-comment.model';
+import { It09CommentService } from '../../services/it09-comment.service';
 
 @Component({
-  selector: 'app-no9',
+  selector: 'app-it09',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './no9.html',
-  styleUrls: ['./no9.scss'],
+  templateUrl: './it09.html',
+  styleUrls: ['./it09.scss'],
 })
-export class No9Component {
+export class It09Component {
   readonly commenter = 'Blend 285';
-  comments = signal<No9Comment[]>([]);
+  comments = signal<It09Comment[]>([]);
   message = signal('');
 
-  constructor(private commentService: No9CommentService) {
+  constructor(private commentService: It09CommentService) {
     this.loadComments();
   }
 

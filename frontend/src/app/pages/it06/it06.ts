@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { No6ProductCode } from '../../models/no6-product-code.model';
-import { No6ProductCodeService } from '../../services/no6-product-code.service';
+import { It06ProductCode } from '../../models/it06-product-code.model';
+import { It06ProductCodeService } from '../../services/it06-product-code.service';
 
 interface BarcodeSegment {
   bar: boolean;
@@ -11,14 +11,14 @@ interface BarcodeSegment {
 }
 
 @Component({
-  selector: 'app-no6',
+  selector: 'app-it06',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './no6.html',
-  styleUrls: ['./no6.scss'],
+  templateUrl: './it06.html',
+  styleUrls: ['./it06.scss'],
 })
-export class No6Component {
-  products = signal<No6ProductCode[]>([]);
+export class It06Component {
+  products = signal<It06ProductCode[]>([]);
   codeInput = signal('');
 
   private readonly code39Patterns: Record<string, string> = {
@@ -62,7 +62,7 @@ export class No6Component {
     '*': 'nwnnwnwnn',
   };
 
-  constructor(private productService: No6ProductCodeService) {
+  constructor(private productService: It06ProductCodeService) {
     this.loadProducts();
   }
 
@@ -94,7 +94,7 @@ export class No6Component {
     });
   }
 
-  deleteProductCode(product: No6ProductCode) {
+  deleteProductCode(product: It06ProductCode) {
     if (!confirm(`Delete ${this.formatCode(product.code)}?`)) return;
 
     this.productService.deleteProductCode(product.id).subscribe({
