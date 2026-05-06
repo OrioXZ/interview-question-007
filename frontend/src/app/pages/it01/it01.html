@@ -1,0 +1,104 @@
+<div class="page">
+  <div class="topbar">
+    <h1>Personal Info</h1>
+    <button class="btn primary" type="button" (click)="openAdd()">Add</button>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Full name</th>
+        <th>Birth date</th>
+        <th>Age</th>
+        <th>Address</th>
+        <th style="width: 96px;">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of people()">
+        <td>{{ person.full_name }}</td>
+        <td>{{ formatBirthDate(person.birth_date) }}</td>
+        <td>{{ person.age }}</td>
+        <td>{{ person.address }}</td>
+        <td><button class="btn" type="button" (click)="openView(person)">View</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="empty" *ngIf="people().length === 0">No records yet</div>
+</div>
+
+<div class="backdrop" *ngIf="addOpen()" (click)="closeAdd()"></div>
+<section class="modal" *ngIf="addOpen()">
+  <header>
+    <h2>Add Personal Info</h2>
+  </header>
+
+  <label>
+    Full name
+    <input
+      [ngModel]="form().full_name"
+      (ngModelChange)="updateForm('full_name', $event)"
+      type="text"
+    />
+  </label>
+
+  <label>
+    Birth date
+    <input
+      [ngModel]="form().birth_date"
+      (ngModelChange)="updateForm('birth_date', $event)"
+      type="date"
+    />
+  </label>
+
+  <label>
+    Age
+    <input [value]="age() ?? ''" type="text" readonly />
+  </label>
+
+  <label>
+    Address
+    <textarea
+      [ngModel]="form().address"
+      (ngModelChange)="updateForm('address', $event)"
+      rows="3"
+    ></textarea>
+  </label>
+
+  <footer>
+    <button class="btn" type="button" (click)="closeAdd()">Cancel</button>
+    <button class="btn primary" type="button" (click)="save()">Save</button>
+  </footer>
+</section>
+
+<div class="backdrop" *ngIf="viewing()" (click)="closeView()"></div>
+<section class="modal" *ngIf="viewing() as person">
+  <header>
+    <h2>View Personal Info</h2>
+  </header>
+
+  <label>
+    Full name
+    <input [value]="person.full_name" type="text" readonly />
+  </label>
+
+  <label>
+    Birth date
+    <input [value]="formatBirthDate(person.birth_date)" type="text" readonly />
+  </label>
+
+  <label>
+    Age
+    <input [value]="person.age" type="text" readonly />
+  </label>
+
+  <label>
+    Address
+    <textarea [value]="person.address" rows="3" readonly></textarea>
+  </label>
+
+  <footer>
+    <button class="btn primary" type="button" (click)="closeView()">Close</button>
+  </footer>
+</section>
