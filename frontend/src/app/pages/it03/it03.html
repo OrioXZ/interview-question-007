@@ -18,7 +18,7 @@
         <tr>
           <th style="width:56px;">เลือก</th>
           <th>เอกสาร</th>
-          <th>ผู้ขอ</th>
+          <th>Decided by</th>
           <th style="width:140px;">สถานะเอกสาร</th>
         </tr>
       </thead>
@@ -29,7 +29,7 @@
             <input type="checkbox" [checked]="selectedId()===d.id" (change)="toggleSelect(d.id)" />
           </td>
           <td>{{ d.title }}</td>
-          <td>{{ d.owner }}</td>
+          <td>{{ d.decidedBy }}</td>
           <td>
             <span class="badge" [attr.data-status]="d.status">{{ statusText(d.status) }}</span>
           </td>

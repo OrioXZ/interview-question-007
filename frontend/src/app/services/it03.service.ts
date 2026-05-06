@@ -19,7 +19,7 @@ export class It03Service {
       map(res => (res.items ?? []).map((i: any) => ({
         id: i.id,
         title: i.title,
-        owner: i.decided_by || '-',
+        decidedBy: i.decided_by || '-',
         status: i.status_code,
         approvedReason: i.status_code === 'APPROVED' ? i.decided_reason : undefined,
         rejectedReason: i.status_code === 'REJECTED' ? i.decided_reason : undefined,

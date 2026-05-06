@@ -122,7 +122,7 @@ export class It03Component {
         this.loadDocs();
       },
       error: (err) => {
-        alert(err?.error?.message || 'ดำเนินการไม่สำเร็จ');
+        alert(err?.error?.error || err?.error?.message || 'ดำเนินการไม่สำเร็จ');
         this.closeModal();
         this.loadDocs();
       }
