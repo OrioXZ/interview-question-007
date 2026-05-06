@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 
+import { LandingComponent } from './pages/landing/landing';
 import { It01Component } from './pages/it01/it01';
 import { It02Component } from './pages/it02/it02';
 import { It03Component } from './pages/it03/it03';
@@ -12,7 +13,7 @@ import { It09Component } from './pages/it09/it09';
 import { It10Component } from './pages/it10/it10';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'it02', pathMatch: 'full' },
+  { path: '', component: LandingComponent },
   { path: 'it01', component: It01Component },
   { path: 'it02', component: It02Component },
   { path: 'it03', component: It03Component },

@@ -1,0 +1,13 @@
+<main class="page">
+  <header class="header">
+    <h1>Assignment Tasks</h1>
+    <p>Select a task to open.</p>
+  </header>
+
+  <nav class="grid" aria-label="Assignment task links">
+    <a class="card" *ngFor="let task of tasks" [routerLink]="task.path">
+      <span class="number">{{ task.number }}</span>
+      <span class="title">{{ task.title }}</span>
+    </a>
+  </nav>
+</main>
