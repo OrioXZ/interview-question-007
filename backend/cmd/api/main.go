@@ -41,6 +41,7 @@ func main() {
 	handlers.RegisterQuestionRoutes(r, gdb)
 	handlers.RegisterExamRoutes(r, gdb)
 	handlers.RegisterBarcodeProductRoutes(r, gdb)
+	handlers.RegisterQRProductRoutes(r, gdb)
 
 	log.Println("listening on :8080")
 	_ = r.Run(":8080")

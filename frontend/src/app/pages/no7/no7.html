@@ -1,0 +1,49 @@
+<div class="page">
+  <h1>QR Product Codes</h1>
+
+  <div class="entry">
+    <input
+      [ngModel]="codeInput()"
+      (ngModelChange)="updateCodeInput($event)"
+      maxlength="35"
+      placeholder="XXXXX-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX"
+      type="text"
+    />
+    <button class="btn primary" type="button" (click)="addProductCode()">Add</button>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product code</th>
+        <th style="width: 160px;">QR</th>
+        <th style="width: 96px;">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products()">
+        <td>{{ formatCode(product.code) }}</td>
+        <td><button class="btn" type="button" (click)="openQR(product)">QR</button></td>
+        <td><button class="btn danger" type="button" (click)="deleteProductCode(product)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="empty" *ngIf="products().length === 0">No product codes yet</div>
+</div>
+
+<div class="backdrop" *ngIf="selectedProduct()" (click)="closeQR()"></div>
+<section class="modal" *ngIf="selectedProduct() as product">
+  <header>
+    <h2>QRCode</h2>
+    <button class="x" type="button" (click)="closeQR()">×</button>
+  </header>
+
+  <div class="qr" aria-label="QR code">
+    <div class="qr-row" *ngFor="let row of qrRows()">
+      <span *ngFor="let cell of row" [class.dark]="cell"></span>
+    </div>
+  </div>
+
+  <div class="code">{{ formatCode(product.code) }}</div>
+</section>
