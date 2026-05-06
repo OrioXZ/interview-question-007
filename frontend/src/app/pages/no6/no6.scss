@@ -1,0 +1,102 @@
+.page {
+  padding: 24px;
+  font-family: system-ui, sans-serif;
+}
+
+.topbar {
+  margin-bottom: 16px;
+}
+
+h1 {
+  margin: 0;
+}
+
+.entry {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  max-width: 520px;
+}
+
+input {
+  box-sizing: border-box;
+  flex: 1;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 9px 10px;
+  font: inherit;
+  text-transform: uppercase;
+}
+
+.btn {
+  border: 1px solid #d1d5db;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 8px 12px;
+}
+
+.btn.primary {
+  background: #0ea5e9;
+  border-color: #0ea5e9;
+  color: #fff;
+}
+
+.btn.danger {
+  background: #ef4444;
+  border-color: #ef4444;
+  color: #fff;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table thead {
+  background: #f8fafc;
+}
+
+.barcode {
+  display: flex;
+  align-items: stretch;
+  height: 54px;
+  background: #fff;
+}
+
+.barcode span {
+  display: block;
+  width: 2px;
+}
+
+.barcode span.wide {
+  width: 5px;
+}
+
+.barcode .bar {
+  background: #111827;
+}
+
+.barcode .space {
+  background: #fff;
+}
+
+.barcode-text {
+  margin-top: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: 0;
+}
+
+.empty {
+  color: #6b7280;
+  padding: 16px 0;
+}

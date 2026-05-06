@@ -1,0 +1,47 @@
+<div class="page">
+  <div class="topbar">
+    <h1>Product Codes</h1>
+  </div>
+
+  <div class="entry">
+    <input
+      [ngModel]="codeInput()"
+      (ngModelChange)="updateCodeInput($event)"
+      maxlength="19"
+      placeholder="XXXX-XXXX-XXXX-XXXX"
+      type="text"
+    />
+    <button class="btn primary" type="button" (click)="addProductCode()">Add</button>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product code</th>
+        <th>Barcode Code 39</th>
+        <th style="width: 96px;">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products()">
+        <td>{{ formatCode(product.code) }}</td>
+        <td>
+          <div class="barcode" aria-label="Code 39 barcode">
+            <span
+              *ngFor="let segment of code39Segments(formatCode(product.code))"
+              [class.bar]="segment.bar"
+              [class.space]="!segment.bar"
+              [class.wide]="segment.wide"
+            ></span>
+          </div>
+          <div class="barcode-text">*{{ formatCode(product.code) }}*</div>
+        </td>
+        <td>
+          <button class="btn danger" type="button" (click)="deleteProductCode(product)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="empty" *ngIf="products().length === 0">No product codes yet</div>
+</div>
