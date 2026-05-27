@@ -13,7 +13,8 @@ import { It09Component } from './pages/it09/it09';
 import { It10Component } from './pages/it10/it10';
 
 export const routes: Routes = [
-  { path: '', component: LandingComponent },
+  // { path: '', component: LandingComponent },
+  { path: '', component: It07Component },
   { path: 'it01', component: It01Component },
   { path: 'it02', component: It02Component },
   { path: 'it03', component: It03Component },

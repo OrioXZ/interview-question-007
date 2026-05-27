@@ -1,16 +1,43 @@
-# Assignment Project
+# Interview Question 007
+
+This repository contains the implementation for **Interview Question 007**.
+
+The submitted feature is the **IT07 - QR Product Codes** page.
 
 ## Overview
 
-This repository implements 10 assignment tasks in one full-stack project.
+The application provides a product code management UI with QR Code display.
 
-The app includes:
+Users can:
 
-- Angular frontend
-- Go Gin backend REST API
-- SQLite database persistence
+- Add a product code to the table
+- Validate product code format
+- Prevent duplicate product codes
+- Display a QR Code in a modal
+- Delete a product code with confirmation
 
-The root frontend route shows a landing page with links to all tasks.
+## Question 007 Requirements
+
+Product code rules:
+
+- Product code can contain only numbers and uppercase English letters
+- Product code length is 30 characters, excluding hyphens
+- Display format: `xxxxx-xxxxx-xxxxx-xxxxx-xxxxx-xxxxx`
+- Duplicate product codes are not allowed
+
+UI behavior:
+
+- Click **Add** to add a valid product code to the table
+- Click **QR** to display the QR Code modal
+- Click **Delete** to show a confirmation box before deleting the row
+
+## Repository Structure
+
+```text
+it-approval/
+  backend/   Go Gin API, SQLite database, migrations
+  frontend/  Angular application
+  README.md
 
 ## Repository Structure
 
