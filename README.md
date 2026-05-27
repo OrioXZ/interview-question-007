@@ -31,13 +31,6 @@ UI behavior:
 - Click **QR** to display the QR Code modal
 - Click **Delete** to show a confirmation box before deleting the row
 
-## Repository Structure
-
-```text
-it-approval/
-  backend/   Go Gin API, SQLite database, migrations
-  frontend/  Angular application
-  README.md
 
 ## Repository Structure
 
@@ -110,7 +103,7 @@ Landing page:
 ```text
 http://localhost:4200
 ```
-Notes
+## Notes
 
 This project was originally developed as a multi-task assignment project.
 For this repository, the submitted task is Interview Question 007, implemented as IT07 - QR Product Codes.
