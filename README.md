@@ -63,18 +63,6 @@ it-approval/
 - GORM
 - SQLite
 
-## Features
-
-- IT01 - Personal Info page with add/view modal and database save
-- IT02 - Login/register flow with bcrypt password hashing and JWT validation
-- IT03 - IT approval request list with approve/reject status updates
-- IT04 - Profile form with validation, occupation combo box, and Base64 image save
-- IT05 - Queue ticket flow from A0 to Z9 with clear queue support
-- IT06 - Product code page with Code 39 barcode rendering
-- IT07 - Product code page with QR display modal
-- IT08 - Question list with add, cancel, delete, and renumbering
-- IT09 - Persistent comment page with fixed commenter name
-- IT10 - Exam-taking page with scoring and saved results
 
 ## Prerequisites
 
@@ -122,16 +110,7 @@ Landing page:
 ```text
 http://localhost:4200
 ```
+Notes
 
-Task routes:
-
-- `http://localhost:4200/it01`
-- `http://localhost:4200/it02`
-- `http://localhost:4200/it03`
-- `http://localhost:4200/it04`
-- `http://localhost:4200/it05`
-- `http://localhost:4200/it06`
-- `http://localhost:4200/it07`
-- `http://localhost:4200/it08`
-- `http://localhost:4200/it09`
-- `http://localhost:4200/it10`
+This project was originally developed as a multi-task assignment project.
+For this repository, the submitted task is Interview Question 007, implemented as IT07 - QR Product Codes.
